@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:healthcheck": "env-cmd -f DEV.env npx cypress run --record --spec 'cypress/integration/login.feature' --tag 'health'",
+    "cy:regular": "env-cmd -f DEV.env npx cypress run --record --spec 'cypress/integration/navigation_menu.feature' --tag 'regular'",
+    "cy:verify": "npx cypress verify"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "env-cmd": "^10.1.0"
+  },
   "devDependencies": {
-    "cypress": "^7.1.0"
+    "cypress": "^6.9.1"
   }
 }
